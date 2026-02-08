@@ -12,6 +12,7 @@ public class ConsoleApp {
 
     // los DAOs/servicio se crean internamente
     public ConsoleApp(JsonSocioDao socioDao) {
+
         this.socioDao = socioDao;
     }
 

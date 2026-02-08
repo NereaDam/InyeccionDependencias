@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import es.iesquevedo.modelo.Socio;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import java.io.File;
 import java.io.FileReader;
@@ -16,11 +18,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
+@ApplicationScoped
 public class JsonSocioDaoImpl implements JsonSocioDao {
     private final File file;
     private final Gson gson;
     private List<Socio> store = new ArrayList<>();
-
+    @Inject
     public JsonSocioDaoImpl(String filePath) {
         this.file = new File(filePath);
         this.gson = new GsonBuilder().setPrettyPrinting().create();
